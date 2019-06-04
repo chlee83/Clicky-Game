@@ -2,11 +2,12 @@ import React from "react";
 import Jumbotron from "./components/Jumbotron";
 import Container from "./components/Container";
 import Row from "./components/Row";
+import ImageCard from "./components/ImageCard";
 import Footer from "./components/Footer";
 import "./App.css";
 
 
-const images = [
+var images = [
     {
         id: 1,
         url: "https://images.unsplash.com/photo-1559440165-f4c2c11f435b?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60",
@@ -90,39 +91,30 @@ class App extends React.Component {
     state = {
         score: 0,
         topScore: 0,
-        images: images,
-        clickedArray: []
+        images: images
     }
 
     //Function for when image is clicked.
     handleImageClick = (id) => {
         
         console.log(id);
-        console.log(this.state.clickedArray)
+        
 
-        if (this.state.clickedArray.indexOf(id)) {
-            //reset score and clickedArray
-            this.setState({
-                score: 0,
-                clickedArray: []
-            });
+        if(this.state)
 
-        } else {
-           //grab images from state
-            let images = this.state.images
+        //grab images from state
+        var images = this.state.images
 
-            //randomize images in array
-            images.sort(() => Math.random() - 0.5);
+        //randomize images in array
+        images.sort(() => Math.random() - 0.5);
 
-            //set new state to updated score and new array of images to DOM
-            this.setState({
-                score: this.state.score + 1,
-                images: images,
-                clickedArray: id
-            });
-        }
-       
-    };
+        //set new state to updated score and new array of images to DOM
+        this.setState({
+            score: 1,
+            topScore: 1,
+            images: images
+        })
+    }
 
     // react component lifecycle method
     render(){
@@ -131,7 +123,7 @@ class App extends React.Component {
             <>
 
                 {/* Navbar containing score */}
-                <nav className="navbar navbar-expand-lg navbar-dark bg-success">
+                <nav class="navbar navbar-expand-lg navbar-dark bg-success">
                     <a class="navbar-brand" href="#">Click-Game</a>
                     <div class="collapse navbar-collapse" id="navbarText">
                         <ul class="navbar-nav mr-auto"> </ul>
