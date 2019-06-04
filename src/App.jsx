@@ -2,7 +2,6 @@ import React from "react";
 import Jumbotron from "./components/Jumbotron";
 import Container from "./components/Container";
 import Row from "./components/Row";
-import ImageCard from "./components/ImageCard";
 import Footer from "./components/Footer";
 import "./App.css";
 
@@ -132,7 +131,7 @@ class App extends React.Component {
             <>
 
                 {/* Navbar containing score */}
-                <nav class="navbar navbar-expand-lg navbar-dark bg-success">
+                <nav className="navbar navbar-expand-lg navbar-dark bg-success">
                     <a class="navbar-brand" href="#">Click-Game</a>
                     <div class="collapse navbar-collapse" id="navbarText">
                         <ul class="navbar-nav mr-auto"> </ul>
