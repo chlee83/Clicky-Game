@@ -92,21 +92,22 @@ class App extends React.Component {
         score: 0,
         topScore: 0,
         images: images,
-        clickedArray = []
+        clickedArray: []
     }
 
     //Function for when image is clicked.
     handleImageClick = (id) => {
         
         console.log(id);
+        console.log(this.state.clickedArray)
 
         if (this.state.clickedArray.indexOf(id)) {
             //reset score and clickedArray
             this.setState({
                 score: 0,
-                clickedArray = []
+                clickedArray: []
             });
-            location.reload();
+
         } else {
            //grab images from state
             let images = this.state.images
@@ -117,7 +118,8 @@ class App extends React.Component {
             //set new state to updated score and new array of images to DOM
             this.setState({
                 score: this.state.score + 1,
-                images: images
+                images: images,
+                clickedArray: id
             });
         }
        
