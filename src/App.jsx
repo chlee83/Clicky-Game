@@ -1,13 +1,13 @@
 import React from "react";
 import Jumbotron from "./components/Jumbotron";
-import Nav from "./components/Nav";
 import Container from "./components/Container";
 import Row from "./components/Row";
 import ImageCard from "./components/ImageCard";
 import Footer from "./components/Footer";
+import "./App.css";
 
 
-var images = [
+const images = [
     {
         id: 1,
         url: "https://images.unsplash.com/photo-1559440165-f4c2c11f435b?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60",
@@ -20,7 +20,7 @@ var images = [
     },
     {
         id: 3,
-        url: "https://images.unsplash.com/photo-1559449604-5ada01a1ae5c?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60",
+        url: "https://images.unsplash.com/photo-1554263022-02df49e88f7d?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60",
         clicked: false
     },
     {
@@ -82,72 +82,90 @@ var images = [
         id: 15,
         url: "https://images.unsplash.com/photo-1425082661705-1834bfd09dca?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60",
         clicked: false
-    },
-    {
-        id: 16,
-        url: "https://images.unsplash.com/photo-1554263022-02df49e88f7d?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60",
-        clicked: false
     }
 ];
 
 class App extends React.Component {
 
+    //set state values
     state = {
         score: 0,
         topScore: 0,
-        images: images
+        images: images,
+        clickedArray = []
     }
 
-
+    //Function for when image is clicked.
     handleImageClick = (id) => {
         
         console.log(id);
-        
-        var images = this.state.images
 
-        images.sort(() => Math.random() - 0.5);
+        if (this.state.clickedArray.indexOf(id)) {
+            //reset score and clickedArray
+            this.setState({
+                score: 0,
+                clickedArray = []
+            });
+            location.reload();
+        } else {
+           //grab images from state
+            let images = this.state.images
 
+            //randomize images in array
+            images.sort(() => Math.random() - 0.5);
 
-        this.setState({
-            score: 1,
-            topScore: 1,
-            images: images
-        })
-    }
-
-
+            //set new state to updated score and new array of images to DOM
+            this.setState({
+                score: this.state.score + 1,
+                images: images
+            });
+        }
+       
+    };
 
     // react component lifecycle method
     render(){
         return(
             //fragment container
             <>
+
+                {/* Navbar containing score */}
                 <nav class="navbar navbar-expand-lg navbar-dark bg-success">
                     <a class="navbar-brand" href="#">Click-Game</a>
                     <div class="collapse navbar-collapse" id="navbarText">
-                    <ul class="navbar-nav mr-auto">
-                    
-                    </ul>
-                    <span class="font-score">
-                        Score: <span id="score">{this.state.score}</span> | Top Score: <span id="top-score">{this.state.topScore}</span>
-                    </span>
+                        <ul class="navbar-nav mr-auto"> </ul>
+
+                        {/* Scoreboard */}
+                        <span class="font-score">
+                            Score: <span id="score">{this.state.score}</span> | Top Score: <span id="top-score">{this.state.topScore}</span>
+                        </span>
                     </div>
                 </nav>
+   
+                {/* Jumbotron for main header and instructions */}
                 <Jumbotron></Jumbotron>
-                <Container>
 
+                {/* Main content display of cards */}
+                <Container>
                     <Row>
-                    <div className="col-12">
-                    {this.state.images.map(each => {
-                        return <div key={each.id} className="card">
-                                <img onClick={() => this.handleImageClick(each.id)} src={each.url} alt=""/>
-                            </div>
-                    })}
-                    </div>
+
+                       {/* @#$@#$@#$#@$  Ask how to make images show in rows*/}
+                        <div className="images-grid justify-content-center">
+
+                            {/* Loop through all images in array and display each one */}
+                            {this.state.images.map(each => {
+                                return <div key={each.id} className="card">
+                                        <img onClick={() => this.handleImageClick(each.id)} src={each.url} alt=""/>
+                                    </div>
+                            })}
+                        </div>
+
                     </Row>
-                   
                 </Container>
+
+                {/* Footer */}
                 <Footer></Footer>
+
             </>
         )
     }
