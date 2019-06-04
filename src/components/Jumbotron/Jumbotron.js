@@ -1,10 +1,12 @@
 import React from "react";
+import "./Jumbotron.css";
 
-const Hello = () => {
+const Jumbotron = () => {
 
-    return(
-        <div className="jumbotron text-center">
-             <div className="display-3">Welcome to the Clicky-Game!</div><br></br>
+    return (
+        <div className="jumbotron jumbotron-fluid bg-dark text-light">
+            <div className="col-12 text-center">
+            <div className="display-3 bolder">Welcome to the Clicky-Game!</div><br></br>
             <h4>
                 This is a memory game. You have to click on one image at a time.
                 Each time you click on a new image, you will gain one point. 
@@ -12,9 +14,9 @@ const Hello = () => {
                 The goal is to click on all 16 images only once!
             </h4>
             <h4>Good Luck!</h4>
-       
+            </div>
         </div>
-    );
-};
-   
-export default Hello;
+    )
+}
+
+export default Jumbotron;

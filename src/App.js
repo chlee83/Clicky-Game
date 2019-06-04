@@ -1,22 +1,47 @@
 import React from "react";
-import Hello from "./components/Hello";
+import Jumbotron from "./components/Jumbotron";
 import Nav from "./components/Nav";
 import Container from "./components/Container";
 import Row from "./components/Row";
 import ImageCard from "./components/ImageCard";
+import Footer from "./components/Footer";
 
 const App = () => {
 
   return (
     <div>
         <Nav></Nav>
+
+        <Jumbotron></Jumbotron>
+
         <Container>
+      
             <Row>
-                <div className="jumbotron col-12 text-center">
-                    <Hello />
-                </div>
+                <ImageCard></ImageCard>
+                <ImageCard></ImageCard>
+                <ImageCard></ImageCard>
+                <ImageCard></ImageCard>
+            </Row>
+            <Row>
+                <ImageCard></ImageCard>
+                <ImageCard></ImageCard>
+                <ImageCard></ImageCard>
+                <ImageCard></ImageCard>
+            </Row>
+            <Row>
+                <ImageCard></ImageCard>
+                <ImageCard></ImageCard>
+                <ImageCard></ImageCard>
+                <ImageCard></ImageCard>
+            </Row>
+            <Row>
+                <ImageCard></ImageCard>
+                <ImageCard></ImageCard>
+                <ImageCard></ImageCard>
+                <ImageCard></ImageCard>
             </Row>
         </Container>
+        <Footer></Footer>
     </div>
    
   );
