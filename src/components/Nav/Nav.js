@@ -10,7 +10,7 @@ const Nav = () => {
            
           </ul>
           <span class="font-score">
-            Score: <span id="score">0</span> | Top Score: <span id="top-score">0</span>
+            Score: <span id="score">{this.state.score}</span> | Top Score: <span id="top-score">0</span>
           </span>
         </div>
       </nav>
