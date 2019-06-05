@@ -2,7 +2,6 @@ import React from "react";
 import Jumbotron from "./components/Jumbotron";
 import Container from "./components/Container";
 import Row from "./components/Row";
-import ImageCard from "./components/ImageCard";
 import Footer from "./components/Footer";
 import "./App.css";
 
@@ -98,22 +97,32 @@ class App extends React.Component {
     handleImageClick = (id) => {
         
         console.log(id);
-        
+        console.log(this.state.images)
 
-        if(this.state)
+        if(this.state.images.clicked === true) {
 
-        //grab images from state
-        var images = this.state.images
+            this.setState({
+                score: 0
+            })
 
-        //randomize images in array
-        images.sort(() => Math.random() - 0.5);
+            window.location.reload();
+        } else {
+            //grab images from state
+            var images = this.state.images
 
-        //set new state to updated score and new array of images to DOM
-        this.setState({
-            score: 1,
-            topScore: 1,
-            images: images
-        })
+            //randomize images in array
+            images.sort(() => Math.random() - 0.5);
+
+            //%%%%%% set that value's clicked to true
+
+            //set new state to updated score and new array of images to DOM
+            this.setState({
+                score: this.state.score + 1,
+                topScore: this.state.score + 1,
+                images: images
+            })
+        }
+      
     }
 
     // react component lifecycle method
