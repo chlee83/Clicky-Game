@@ -93,11 +93,11 @@ class App extends React.Component {
         images: images
     }
 
+    //added notes
     //Function for when image is clicked.
     handleImageClick = (id) => {
         
         console.log(id);
-        console.log(this.state.images)
 
         if(this.state.images.clicked === true) {
 
