@@ -4,9 +4,9 @@ import "./Jumbotron.css";
 const Jumbotron = () => {
 
     return (
-        <div className="jumbotron jumbotron-fluid bg-dark text-light">
+        <div className="jumbotron jumbotron-fluid bg-image text-light">
             <div className="col-12 text-center">
-            <div className="display-3 bolder">Welcome to the Clicky-Game!</div><br></br>
+            <div className="display-3 bolder">Welcome to the Clicky Game!</div><br></br>
             <h4>
                 This is a memory game. You have to click on one image at a time.
                 Each time you click on a new image, you will gain one point. 
