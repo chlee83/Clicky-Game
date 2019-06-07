@@ -196,7 +196,7 @@ class App extends React.Component {
                 {/* Navbar containing score */}
                 <nav className="navbar navbar-expand-lg sticky-top navbar-dark bg-info">
                     <div className="col">
-                        <a className="navbar-brand" href="/">Clicky Game</a>
+                        <a className="navbar-brand" href="#">Clicky Game</a>
                     </div>
                     <div className="col text-center text-danger">
                         <h3>{this.state.guessed}</h3>
